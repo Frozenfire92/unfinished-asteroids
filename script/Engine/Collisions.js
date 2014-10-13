@@ -6,7 +6,6 @@ ENGINE.Collisions = function(entities) {
 
 ENGINE.Collisions.prototype = {
 
-
   step: function(delta) {
 
     for (var i = 0; i < this.entities.children.length; i++) {
@@ -27,29 +26,8 @@ ENGINE.Collisions.prototype = {
           if (b.collision) b.collision(a);
 
           if (this.callback) this.callback(a, b);
-
-        }
-
-      }
-    }
-
-  },
-
-  /* this shit is short but buggy - what a crappy day... at crappy company
-     - temporary leaving it for emergency use */
-
-  step2: function() {
-
-    for (var i = 0; i < this.entities.children.length; i++) {
-      for (var j = 0; j < this.entities.children.length; j++) {
-        var a = this.entities.children[i];
-        var b = this.entities.children[j];
-        if (Utils.distance(a, b) < a.radius + b.radius) {
-          a.collision(b);
-          b.collision(a);
         }
       }
     }
   }
-
 };
