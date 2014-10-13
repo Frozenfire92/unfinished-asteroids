@@ -88,6 +88,7 @@ ENGINE.Player.prototype = {
 
   shoot: function() {
 
+    app.playSound("shoot"); 
     this.collection.add(ENGINE.Bullet, {
       x: this.x,
       y: this.y,
