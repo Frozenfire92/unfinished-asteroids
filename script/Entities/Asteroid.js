@@ -33,8 +33,10 @@ ENGINE.Asteroid.prototype = {
     this.hp -= data.damage;
 
     if (this.hp <= 0) {
-
+ 
+      app.game.players[0].score++;
       app.playSound("asteroid-crush");
+ 
       if (this.splits) this.split();
 
       this.collection.remove(this);
